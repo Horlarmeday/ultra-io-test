@@ -4,9 +4,11 @@ import { AppService } from './app.service';
 import { GamesModule } from './modules/games/games.module';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
+import * as dotenv from 'dotenv';
 import { BullModule } from '@nestjs/bull';
 import { JobsModule } from './core/jobs/jobs.module';
 
+dotenv.config();
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
