@@ -5,6 +5,8 @@ import {
   IsOptional,
   IsString,
 } from 'class-validator';
+import { Type } from 'class-transformer';
+import { MaxNumberLength, MinNumberLength } from '../../../core/decorators';
 
 export class CreateGameDto {
   @IsNotEmpty()
@@ -16,9 +18,23 @@ export class CreateGameDto {
   readonly price: number;
 
   @IsNotEmpty()
-  @IsDate()
+  @Type(() => Date)
   readonly release_date: Date;
 
   @IsOptional()
-  readonly tags: string;
+  readonly tags?: string[];
+
+  @IsNotEmpty()
+  @IsString()
+  readonly name: string;
+
+  @IsNotEmpty()
+  @IsString()
+  readonly phone: string;
+
+  @IsNotEmpty()
+  @IsNumber()
+  @MaxNumberLength({ message: 'siret cannot be more than 16 digits' })
+  @MinNumberLength({ message: 'siret cannot be less than 14 digits' })
+  readonly siret: number;
 }
