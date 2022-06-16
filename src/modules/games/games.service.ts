@@ -72,6 +72,7 @@ export class GamesService {
   async fetchPublisher(id: string) {
     const game = await this.gamesRepository.findOne<Game>({
       where: { id },
+      attributes: ['id'],
       include: [
         {
           model: Publisher,
@@ -82,7 +83,7 @@ export class GamesService {
     return game;
   }
 
-  async update(id: string, updateGameDto: UpdateGameDto): Promise<unknown> {
+  async update(id: string, updateGameDto: UpdateGameDto): Promise<Game> {
     const game = await this.gamesRepository.update<Game>(updateGameDto, {
       where: { id },
       returning: true,
