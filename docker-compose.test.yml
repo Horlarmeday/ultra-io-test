@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  test:
+    build:
+      context: ./
+      target: test
+    volumes:
+      - '.:/app'
+    ports:
+      - '4600:4600'
+    environment:
+      NODE_ENV: test
+    env_file:
+      - .env.integration
+    links:
+      - postgres
+      - redis
+    networks:
+      - ultra
+    command: yarn test:all
+    restart: always
