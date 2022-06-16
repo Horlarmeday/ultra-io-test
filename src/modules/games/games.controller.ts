@@ -6,7 +6,7 @@ import {
   Patch,
   Param,
   Delete,
-  Query,
+  Query, HttpStatus, HttpCode,
 } from '@nestjs/common';
 import { GamesService } from './games.service';
 import { CreateGameDto } from './dto/create-game.dto';
@@ -31,7 +31,8 @@ export class GamesController {
     return sendSuccessResponse(Messages.RETRIEVED, result);
   }
 
-  @Get('process-games')
+  @Post('process-games')
+  @HttpCode(HttpStatus.OK)
   async processGames() {
     await this.gamesService.processGames();
     return sendSuccessResponse(Messages.PROCESSED, null);

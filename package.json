@@ -22,7 +22,8 @@
     "prepare": "husky install",
     "test:all": "yarn test && yarn test:e2e",
     "migrate": "npx sequelize-cli db:migrate",
-    "unmigrate": "npx sequelize-cli db:migrate:undo"
+    "unmigrate": "npx sequelize-cli db:migrate:undo",
+    "createDB": "node db/createDB.ts"
   },
   "dependencies": {
     "@nestjs/bull": "^0.5.5",
