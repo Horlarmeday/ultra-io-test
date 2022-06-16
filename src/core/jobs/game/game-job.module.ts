@@ -4,6 +4,7 @@ import { GameJobProcessor } from './game-job.processor';
 import { Game } from '../../../modules/games/entities/game.entity';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { GameJobService } from './game-job.producer';
+import { GeneralHelpers } from '../../../common/helpers/general.helpers';
 
 @Module({
   imports: [
@@ -12,7 +13,7 @@ import { GameJobService } from './game-job.producer';
     }),
     SequelizeModule.forFeature([Game]),
   ],
-  providers: [GameJobProcessor, GameJobService],
+  providers: [GameJobProcessor, GameJobService, GeneralHelpers],
   exports: [GameJobService],
 })
 export class GameJobModule {}

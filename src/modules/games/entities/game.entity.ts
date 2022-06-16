@@ -40,15 +40,14 @@ export class Game extends Model {
   price: number;
 
   @Column({
-    type: DataType.JSON,
+    type: DataType.ARRAY(DataType.STRING),
     allowNull: true,
   })
-  tags: string;
+  tags?: string[];
 
   @Column({
-    type: DataType.JSON,
+    type: DataType.DATE,
     allowNull: false,
-    defaultValue: Date.now(),
   })
   release_date: Date;
 
