@@ -35,6 +35,12 @@ $ yarn test:e2e
 $ yarn test:cov
 ```
 
+## Prerequisites
+Before you start the docker container, please do the following
+- Create a `.env` and and a `.env.integration` file in the root of the app
+- Copy the content in the .env.example into both files
+- Fill in the appropriate information
+
 #### Docker (recommended)
 For docker, run the following commands
 ##### development
