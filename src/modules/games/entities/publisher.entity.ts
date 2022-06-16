@@ -2,10 +2,12 @@ import {
   Column,
   DataType,
   Default,
+  HasMany,
   Model,
   PrimaryKey,
   Table,
 } from 'sequelize-typescript';
+import { Game } from './game.entity';
 
 @Table
 export class Publisher extends Model {
@@ -18,14 +20,23 @@ export class Publisher extends Model {
   id: string;
 
   @Column({
-    type: DataType.INTEGER,
+    type: DataType.STRING,
     allowNull: false,
   })
-  siret: number;
+  name: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  siret: string;
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
   phone: string;
+
+  @HasMany(() => Game)
+  games: Game[];
 }
