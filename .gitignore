@@ -20,6 +20,7 @@ lerna-debug.log*
 
 #ENV
 .env
+.env.integration
 
 # IDEs and editors
 /.idea
