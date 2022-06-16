@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  ultra-api:
+    build:
+      context: ./
+      target: dev
+    volumes:
+      - '.:/app'
+    ports:
+      - '4500:4500'
+    environment:
+      NODE_ENV: development
+    env_file:
+      - .env
+    links:
+      - postgres
+      - redis
+    networks:
+      - ultra
+    command: yarn start:dev
+    restart: always
+  nginx:
+    image: nginx:1.18-alpine
+    volumes:
+      - .nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - ultra-api
+    links:
+      - ultra-api
+    restart: always
+    networks:
+      - ultra
+    ports:
+      - '8087:80'
