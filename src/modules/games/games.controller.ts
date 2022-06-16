@@ -31,16 +31,10 @@ export class GamesController {
     return sendSuccessResponse(Messages.RETRIEVED, result);
   }
 
-  @Get()
+  @Get('process-games')
   async processGames() {
     await this.gamesService.processGames();
     return sendSuccessResponse(Messages.PROCESSED, null);
-  }
-
-  @Get(':id')
-  async findOne(@Param('id') id: string) {
-    const result = await this.gamesService.findOne(id);
-    return sendSuccessResponse(Messages.RETRIEVED, result);
   }
 
   @Get(':id/publisher')
