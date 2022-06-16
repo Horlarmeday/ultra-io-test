@@ -1,11 +1,5 @@
 # Ultra.io Challenge
 
-  <p align="center"></p>
-    <p align="center">
-        <a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-        <a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-    </p>
- 
 ## Description
 
 Ultra.io coding exercise
@@ -55,6 +49,17 @@ docker-compose -f docker-compose.yml -f docker-compose.integration.yml up --abor
 ```bash
 docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --abort-on-container-exit
 ```
+
+## Features
+The features of this project include the following.
+
+- Create, fetch, delete and update games
+- Fetch a publisher data via games API
+- Process that automatically remove games having a release date older than 18
+  months and then apply a discount of 20% to all games having a release date between 12 and 18 months
+
+## Documentation
+The API documentation for testing the endpoints is located <a href="https://documenter.getpostman.com/view/9548350/UzBjso6p">here</a>
 
 ## License
 
