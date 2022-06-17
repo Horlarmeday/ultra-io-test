@@ -43,7 +43,7 @@ docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build -d
 ```
 ##### test (integration)
 ```bash
-docker-compose -f docker-compose.yml -f docker-compose.integration.yml up --abort-on-container-exit
+docker-compose -f docker-compose.yml -f docker-compose.integration.yml up --abort-on-container-exit --exit-code-from test
 ```
 ##### production
 ```bash
