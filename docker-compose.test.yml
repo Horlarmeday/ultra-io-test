@@ -16,6 +16,9 @@ services:
     links:
       - postgres
       - redis
+    depends_on:
+      - postgres
+      - redis
     networks:
       - ultra
     command: yarn test:all
