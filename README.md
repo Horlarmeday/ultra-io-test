@@ -47,7 +47,7 @@ For docker, run the following commands
 ```bash
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build -d
 ```
-##### test (integration)
+##### test
 ```bash
 docker-compose -f docker-compose.yml -f docker-compose.test.yml up --abort-on-container-exit --exit-code-from test
 ```
