@@ -41,7 +41,7 @@ Before you start the docker container, please do the following
 - Copy the content in the .env.example into both files
 - Fill in the appropriate information
 
-#### Docker (recommended)
+## Docker (recommended)
 For docker, run the following commands
 ##### development
 ```bash
